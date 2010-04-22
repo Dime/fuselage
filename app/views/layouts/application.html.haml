@@ -4,27 +4,41 @@
   %head
     - title = yield(:title) || configatron.site_description
     %title= configatron.site_name + " : " + title
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
     <meta name="google-site-verification" content=" YOUR TAG HERE " />
     <meta name="description" content=" YOUR META TAGS" />
 
-    = stylesheet_link_tag 'compiled/grid.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'compiled/text.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'compiled/forms.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/fuselage.css', :media => 'screen, projection'
+    /[if IE]
+      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
 
     = yield(:head)
-  %body
-    #container
-      = render :partial => 'layouts/header'
+    
+  %body.two-column.custom
+  
+    #header
+      .wrapper
+        = render :partial => '/shared/header'
+        
+    #flashes
+      .wrapper
+        = render :partial => 'shared/flashes'
 
-      #content
-        %h2 Content
-        = render :partial => 'layouts/flashes'
-        = yield :layout
+    #content
+      .wrapper
+        #main
+          = yield :layout
+        #sidebar
+          = render :partial => 'shared/sidebar'
+        
+    #social
+      .wrapper
+        = render :partial => 'shared/social'
 
-      = render :partial => 'layouts/sidebar'
-
-      = render :partial => 'layouts/footer'
+    #footer
+      .wrapper
+        = render :partial => 'shared/footer'
 
 
     = javascript_include_tag 'jquery-1.4.2.min', 'application', :cache => true
