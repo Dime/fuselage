@@ -6,45 +6,45 @@
 
 @import 960/grid.sass
 
-// The following generates the default grids provided by the css version of 960.gs
-.container_12
-  +grid-system(12)
 
-.container_16
-  +grid-system(16)
-  
-  
-// This will give you full width container and works for the sake of maintaining syntax logic
-=grid-full
-  +grid-container
+//The following generates the custom grids used by Fuselage
+
+!ninesixty_gutter_width = 10px
+!ninesixty_grid_width = 960px
+!ninesixty_columns = 24
+
+.wrapper
+  +grid-system(24)
+  +clearfix
+  +grid-children
+
 
 // But most compass users prefer to construct semantic layouts like so (two column layout with header and footer):
 
-!ninesixty_columns = 24
 .two-column
-  +grid-container
-  +clearfix
-  .wrapper
-    +grid(24)
   
   #header
     #logo
-      +grid(8)
+      +grid(8, 24)
       +alpha
-    #user_nav 
-      +grid(16)
+    #user_nav, #main_nav
+      +grid(16, 24)
       +omega
-    #main_nav
-      +grid-full
+      
   #flashes
+  
+  #featured
+  
   #content
     #main
-      +grid(16)
+      +grid(16, 24)
       +alpha
     #sidebar
-      +grid(8)
+      +grid(8, 24)
       +omega
+      
   #social
+  
   #footer
 
   

@@ -7,10 +7,23 @@
   Created by Siyelo. */
 
 
-// Compass imports
+// Grid & typography styles imports
+// Incorporated with the 960gs framework
 
-@import compass/reset.sass
+@import compass/utilities/general/reset.sass
+@import compass/utilities/general/clearfix.sass
+@import grid.sass
+
++global-reset
+
+@import text.sass
 @import compass/utilities.sass
+@import compass/layout.sass
+
+
+// Form styles import
+
+@import forms.sass
 
 
 // Libraries
@@ -19,22 +32,7 @@
 @import modules/sprites.sass
 
 
-// Grid & typography styles imports
-// Incorporated with the 960gs framework
-
-@import grid.sass
-@import text.sass
-
-
-// Form styles import
-
-@import forms.sass
-
-
 // Project styles
 
 @import project.sass
-
-
-+global-reset
 

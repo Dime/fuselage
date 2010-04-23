@@ -15,30 +15,13 @@
 
     = yield(:head)
     
-  %body.two-column.custom
+  %body.two-column.fuselage
   
-    #header
-      .wrapper
-        = render :partial => '/shared/header'
-        
-    #flashes
-      .wrapper
-        = render :partial => 'shared/flashes'
-
-    #content
-      .wrapper
-        #main
-          = yield :layout
-        #sidebar
-          = render :partial => 'shared/sidebar'
-        
-    #social
-      .wrapper
-        = render :partial => 'shared/social'
-
-    #footer
-      .wrapper
-        = render :partial => 'shared/footer'
-
+    = render :partial => 'shared/header'
+    = render :partial => 'shared/flashes'
+    = render :partial => 'shared/featured'
+    = render :partial => 'shared/content'
+    = render :partial => 'shared/social'
+    = render :partial => 'shared/footer'
 
     = javascript_include_tag 'jquery-1.4.2.min', 'application', :cache => true
